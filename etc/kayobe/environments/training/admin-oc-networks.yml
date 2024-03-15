@@ -1,0 +1,10 @@
+---
+admin_oc_cidr: 10.0.3.0/24
+admin_oc_allocation_pool_start: 0.0.0.0
+admin_oc_allocation_pool_end: 0.0.0.0
+admin_oc_bootproto: dhcp
+
+admin_oc_ips:
+  seunghun-controller: 10.0.3.80
+  seunghun-compute: 10.0.3.83
+

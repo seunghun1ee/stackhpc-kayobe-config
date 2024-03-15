@@ -8,9 +8,6 @@
 #overcloud_group_hosts_map:
 overcloud_group_hosts_map:
   controllers:
-    - controller0
-    - controller1
-    - controller2
+    - seunghun-controller
   compute:
-    - compute0
-    - compute1
+    - seunghun-compute

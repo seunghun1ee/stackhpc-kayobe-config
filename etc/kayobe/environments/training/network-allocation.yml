@@ -1,8 +1,10 @@
-aio_ips:
-  compute0: 192.168.33.6
-  compute1: 192.168.33.7
-  controller0: 192.168.33.3
-  controller1: 192.168.33.9
-  controller2: 192.168.33.10
-  seed: 192.168.33.5
-  seed-hypervisor: 192.168.33.4
+internal_ips:
+  seunghun-compute: 192.168.37.4
+  seunghun-controller: 192.168.37.3
+public_ips:
+  seunghun-controller: 192.168.39.3
+provison_oc_ips:
+  seunghun-controller: 192.168.33.3
+tunnel_ips:
+  seunghun-compute: 192.168.40.4
+  seunghun-controller: 192.168.40.3

@@ -2,13 +2,17 @@
 ###############################################################################
 # Network interface definitions for the controller group.
 
-# Controller interface on all-in-one network.
-aio_interface: "br{{ aio_bridge_ports[0] }}"
-aio_bridge_ports:
-  - "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}"
+admin_oc_interface: "{{ ansible_facts.default_ipv4.interface }}"
 
-# Route via the seed-hypervisor to the outside world.
-aio_gateway: 192.168.33.4
+internal_interface: "{{ vxlan_interfaces[0].device }}.{{ internal_vlan }}"
+
+tunnel_interface: "{{ vxlan_interfaces[0].device }}.{{ tunnel_vlan }}"
+
+public_interface: "{{ vxlan_interfaces[0].device }}.{{ public_vlan }}"
+
+provision_oc_interface: "{{ vxlan_interfaces[0].device}}.{{ provision_oc_vlan }}"
+
+external_interface: "{{ vxlan_interfaces[0].device }}.{{ external_vlan }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.
