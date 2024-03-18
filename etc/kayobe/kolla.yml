@@ -320,13 +320,15 @@ kolla_build_blocks:
     ADD additions-archive /
   grafana_plugins_install: |
     RUN grafana-cli plugins install vonage-status-panel \
-        && grafana-cli plugins install grafana-piechart-panel
+        && grafana-cli plugins install grafana-piechart-panel \
+        && grafana-cli plugins install grafana-opensearch-datasource \
+        && grafana-cli plugins install gnocchixyz-gnocchi-datasource
   ironic_inspector_header: |
     ADD additions-archive /
   magnum_base_footer: |
     RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | head -n -1 | bash
     {% raw %}
-    {% set magnum_capi_packages = ['git+https://github.com/stackhpc/magnum-capi-helm.git@v0.10.0'] %}
+    {% set magnum_capi_packages = ['git+https://github.com/stackhpc/magnum-capi-helm.git@v0.11.0'] %}
     RUN {{ macros.install_pip(magnum_capi_packages | customizable("pip_packages")) }}
     {% endraw %}
 # Dict mapping image customization variable names to their values.
